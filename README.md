@@ -48,11 +48,11 @@ To convert a MD9600 to remote head operation requires the following steps.
 
 ### How do I make these boards?
 
-All of the information neede to make your own boards is included in this repository. The gerber files for the PCBs are provided and it is now very easy and cheap to get PCBs made in China. Companies such as PCBWAY will accept the Zipped Gerber files as provided and produce 10 PCBs for about £5.  so that is £10 for 10 of both PCBs. I would suggest that you get together with other people in your country and order the boards. 
+All of the information needed to make your own boards is included in this repository. The gerber files for the PCBs are provided and it is now very easy and cheap to get PCBs made in China. Companies such as PCBWAY will accept the Zipped Gerber files as provided and produce 10 PCBs for about £5.  so that is £10 for 10 of both PCBs. I would suggest that you get together with other people in your country and order the boards. 
 
 The components needed to assemble the boards are easily available and a parts list is provided with Farnell, Mouser and Digikey part numbers. 
 
-The only difficult parts to solder are the ribbon cale connectors and the digital potentiometer chip. However these can both be done with very carefull hand soldering. 
+The only difficult parts to solder are the ribbon cable connectors and the digital potentiometer chip. However these can both be done with very carefull hand soldering. 
 
 
 
