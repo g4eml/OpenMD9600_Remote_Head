@@ -38,8 +38,22 @@ To convert a MD9600 to remote head operation requires the following steps.
 
 6. Connect the two PCBs togetehr with the RJ45 cable. 
 
-7. Connect the microphone to the second socket on the radio body PCB.
-   
-   
-   
-   
+7. Connect the microphone to the second socket on the radio body PCB. 
+
+8. Ensure the MD9600 is running the correct version of OpenMD9600.
+
+9. Power on the radio. It should behave exactly as it did before. 
+
+
+
+### How do I make these boards?
+
+All of the information neede to make your own boards is included in this repository. The gerber files for the PCBs are provided and it is now very easy and cheap to get PCBs made in China. Companies such as PCBWAY will accespt the Gerber files as provided and produce 10 PCBs for about £5.  so that is £10 for 10 of both PCBs. I woul dsuggest that you get together with other people in your country and order the boards. 
+
+The components needs to assemble the boards are easily available and a parts list is provided with Farnell, Mouser and Digikey part numbers. 
+
+The only difficult parts to solder are the ribbon cale connectors and the digital potentiometer chip. However these can both be done with very carefull hand soldering. 
+
+
+
+### Programming the Raspberry Pi Pico.
