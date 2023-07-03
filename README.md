@@ -4,7 +4,7 @@ The MD9600 is a good DMR mobile radio but, as standard, it does not have the abi
 
 The Control Head of the radio is normally connected to the front panel by a 30 conductor Flat Flexible cable. It is impractical to try to extend this cable. 
 
-Now that the radio is able to run the excellent OpenMD9600 firmware it became possible to develop a way of communicating between the radio and the front panel using only a single RJ45 Cat7 cable. This requires a modified version of the OpenMD9600 firmware. 
+Now that the radio is able to run the excellent OpenMD9600 firmware it became possible to develop a way of communicating between the radio and the front panel using only a single RJ45 Cat7 cable. This currently requires a modified version of the OpenMD9600 firmware (available from G4EML) but it is hoped that this will be included in a future release of the firmware.  
 
 ### <mark>**Note that this modification will only work with the OpenMD9600 firmware. It will not work with the original TYT factory firmware.**</mark>
 
