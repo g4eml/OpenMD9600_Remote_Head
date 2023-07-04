@@ -44,8 +44,6 @@ To convert a MD9600 to remote head operation requires the following steps.
 
 9. Power on the radio. It should behave exactly as it did before. 
 
-
-
 ### How do I make these boards?
 
 All of the information needed to make your own boards is included in this repository. The gerber files for the PCBs are provided and it is now very easy and cheap to get PCBs made in China. Companies such as PCBWAY will accept the Zipped Gerber files as provided and produce 10 PCBs for about £5.  so that is £10 for 10 of both PCBs. I would suggest that you get together with other people in your country and order the boards. 
@@ -54,6 +52,72 @@ The components needed to assemble the boards are easily available and a parts li
 
 The only difficult parts to solder are the ribbon cable connectors and the digital potentiometer chip. However these can both be done with very carefull hand soldering. 
 
-
-
 ### Programming the Raspberry Pi Pico.
+
+The Raspberry Pi Pico is programmed using the Arduino IDE with the Earl F. Philhower, III core. 
+
+#### Installing the Arduino IDE
+
+1.  Install the Arduino IDE from here https://downloads.arduino.cc/arduino-1.8.19-windows.exe
+
+2. Open the Arduino IDE and go to File/Preferences.
+
+3. in the dialog enter the following URL in the 'Additional Boards Manager URLs' field: https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json
+
+4. Hit OK to close the Dialog.
+
+5. Go to Tools->Board->Board Manager in the IDE.
+
+6. Type “pico” in the search box and select “Add”:
+
+#### Downloading the Software.
+
+1. Download the zipped software from https://github.com/g4eml/OpenMD9600_Remote_Head/archive/refs/heads/main.zip
+
+2. Save it to a convenient location and then unzip it. 
+
+#### Programming the Pico
+
+1. Open the Arduino IDE and click File/Open
+
+2. Navigate to the File Arduino/MD9600_Remote_Head/MD9600_Remote_Head.ino (downloaded in the previous step) and click Open.
+
+3. Select Tools/ and make the following settings. 
+   
+   Board: "Raspberry Pi Pico"
+   
+   Flash Size: "2Mb (no FS)"
+   
+   CPU Speed: "133MHz"
+   
+   Optimise: "Small (-Os)(standard)"
+   
+   RTTI: "Disabled"
+   
+   Stack Protection: "Disabled"
+   
+   C++ Exceptions: "Disabled"
+   
+   Debug Port: "Disabled"
+   
+   Debug Level: "None"
+   
+   USB Stack: "Pico SDK"
+   
+   IP/Bluetooth Stack: "IPv4 Only"
+   
+   Upload Method: "Default (UF2)"
+
+4. Connect the Rasperry Pi Pico using the USB port. 
+
+5. Click Sketch/Upload.
+
+
+
+The Sketch should compile and upload automatically to the Pico. If the upload fials you may need to disconnect the Pico and then hold down the BOOTSEL button while reconnecting. 
+
+
+
+If all has gone well the remote head display should light up and display "MD9600 Remote Head'
+
+Disconnect the USB cable, dconnect the head to the radio body with the RJ45 cable and apply power to the radio.
