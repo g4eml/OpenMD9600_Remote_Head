@@ -44,6 +44,8 @@ To convert a MD9600 to remote head operation requires the following steps.
 
 9. Power on the radio. It should behave exactly as it did before. 
 
+10. The files are also provided to 3D print covers for the radio body and the head. These are optional but do provide additional protection for the PCBs. 
+
 ### How do I make these boards?
 
 All of the information needed to make your own boards is included in this repository. The gerber files for the PCBs are provided and it is now very easy and cheap to get PCBs made in China. Companies such as PCBWAY will accept the Zipped Gerber files as provided and produce 10 PCBs for about £5.  so that is £10 for 10 of both PCBs. I would suggest that you get together with other people in your country and order the boards. 
@@ -58,7 +60,7 @@ The Raspberry Pi Pico is programmed using the Arduino IDE with the Earl F. Philh
 
 #### Installing the Arduino IDE
 
-1.  Install the Arduino IDE from here https://downloads.arduino.cc/arduino-1.8.19-windows.exe
+1. Install the Arduino IDE from here https://downloads.arduino.cc/arduino-1.8.19-windows.exe
 
 2. Open the Arduino IDE and go to File/Preferences.
 
@@ -112,11 +114,7 @@ The Raspberry Pi Pico is programmed using the Arduino IDE with the Earl F. Philh
 
 5. Click Sketch/Upload.
 
-
-
 The Sketch should compile and upload automatically to the Pico. If the upload fials you may need to disconnect the Pico and then hold down the BOOTSEL button while reconnecting. 
-
-
 
 If all has gone well the remote head display should light up and display "MD9600 Remote Head'
 
