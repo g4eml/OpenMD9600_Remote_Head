@@ -1,5 +1,7 @@
 # OpenMD9600_Remote_Head
 
+![MD9600 Remote Head](Pics/IMG1.jpg) 
+
 The MD9600 is a good DMR mobile radio but, as standard, it does not have the ability to mount the control head remotely to the main body of the radio. 
 
 The Control Head of the radio is normally connected to the front panel by a 30 conductor Flat Flexible cable. It is impractical to try to extend this cable. 
@@ -12,6 +14,8 @@ The mod requres two new small PCBs.
 
 ### Radio Body Interface PCB
 
+![Body](Pics/IMG6.jpg)
+
 This PCB is fitted to the front of the radio body and is connected to the existing 30 way ribbon cable. The necessary signals are routed to a RJ45 socket. A second RJ45 socket is also provided for direct connection of the microphone to the radio body.  Whilst the microphone can still be connected to the remotely mounted head this can suffer from pickup of noise due to the poor screening of the RJ45 cable. It is therefore recommended to connect the microphone directly to the radio body, using an extension cable if necessary. 
 
 The modifed OpenMD9600 firmware detects the presence of the interface board and reconfigures the existing signals into a suitable format. This is a bi-directional 250000 Baud serial link.  Using this link display data is sent to the remote head PCB and front panel key presses are received from it. 
@@ -19,6 +23,8 @@ The modifed OpenMD9600 firmware detects the presence of the interface board and 
 The PCB also include a digital potentiometer chip which is used to control the radio volume.  This chip is controlled by the remote head PCB.  This is necessary to reduce audio noise pickup on the long cable. 
 
 ### Remote Head Interface PCB
+
+![Head](Pics/IMG3.jpg)
 
 This PCB is fitted to the rear of the remote head and connects to the existing 30 way connector.  Serial data to and from the radio body is handled by a Raspberry Pi Pico module which decodes the data and sends it to the Front Panel display, it also reads the front panel buttons and sends their staus to the radio body. 
 
