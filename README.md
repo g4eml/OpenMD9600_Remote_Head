@@ -20,7 +20,7 @@ This PCB is fitted to the front of the radio body and is connected to the existi
 
 The modifed OpenMD9600 firmware detects the presence of the interface board and reconfigures the existing signals into a suitable format. This is a bi-directional 250000 Baud serial link.  Using this link display data is sent to the remote head PCB and front panel key presses are received from it. 
 
-The PCB also include a digital potentiometer chip which is used to control the radio volume.  This chip is controlled by the remote head PCB.  This is necessary to reduce audio noise pickup on the long cable. 
+The PCB includes a digital potentiometer chip which is used to control the radio volume.  This chip is controlled by the remote head PCB.  This is necessary to reduce audio noise pickup on the long cable. Also fitted is a power switch chip which is used to control the power to the microphone. 
 
 ### Remote Head Interface PCB
 
@@ -58,7 +58,7 @@ All of the information needed to make your own boards is included in this reposi
 
 The components needed to assemble the boards are easily available and a parts list is provided with Farnell, Mouser and Digikey part numbers. 
 
-The only difficult parts to solder are the ribbon cable connectors and the digital potentiometer chip. However these can both be done with very carefull hand soldering. 
+The only difficult parts to solder are the ribbon cable connectors and the two SOT23-6 chips. However these can both be done with very carefull hand soldering. 
 
 ### Programming the Raspberry Pi Pico.
 
