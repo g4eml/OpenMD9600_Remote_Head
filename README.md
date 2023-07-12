@@ -14,7 +14,7 @@ The mod requres two new small PCBs.
 
 ### Radio Body Interface PCB
 
-![Body](Pics/IMG6.jpg)
+![BodyPCB](Pics/IMG9.jpg)
 
 This PCB is fitted to the front of the radio body and is connected to the existing 30 way ribbon cable. The necessary signals are routed to a RJ45 socket. A second RJ45 socket is also provided for direct connection of the microphone to the radio body.  Whilst the microphone can still be connected to the remotely mounted head this can suffer from pickup of noise due to the poor screening of the RJ45 cable. It is therefore recommended to connect the microphone directly to the radio body, using an extension cable if necessary. 
 
@@ -24,7 +24,7 @@ The PCB includes a digital potentiometer chip which is used to control the radio
 
 ### Remote Head Interface PCB
 
-![Head](Pics/IMG3.jpg)
+<img title="" src="Pics/IMG7.jpg" alt="Head" data-align="inline">
 
 This PCB is fitted to the rear of the remote head and connects to the existing 30 way connector.  Serial data to and from the radio body is handled by a Raspberry Pi Pico module which decodes the data and sends it to the Front Panel display, it also reads the front panel buttons and sends their staus to the radio body. 
 
@@ -51,6 +51,10 @@ To convert a MD9600 to remote head operation requires the following steps.
 9. Power on the radio. It should behave exactly as it did before. 
 
 10. The files are also provided to 3D print covers for the radio body and the head. These are optional but do provide additional protection for the PCBs. 
+
+![Fitting](Pics/IMG10.jpg)
+
+![Fitting](Pics/IMG8.jpg)
 
 ### How do I make these boards?
 
