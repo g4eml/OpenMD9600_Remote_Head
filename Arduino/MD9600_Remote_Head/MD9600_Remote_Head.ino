@@ -38,12 +38,13 @@ uint8_t brightness;
 uint8_t micPower;
 static uint8_t poweredDown = 0;
 int volumePot = 0;
+static bool GPSon = 0;
 
 bool reSend = false;
 
 void setup() 
 {
-Serial.begin(9600);             //Debug USB port
+Serial.begin(250000);             //Debug USB port
 Serial1.setRX(COM1RX);
 Serial1.setTX(COM1TX);
 Serial2.setRX(COM2RX);
@@ -144,7 +145,7 @@ static uint8_t lastMRow=5;
 static uint8_t lastMCol=4;
 static uint8_t lastBrightness = 0;
 static uint8_t lastMicPower = 0;
-char buff[10];
+static char buff[10];
 
 delay(1);
  if (micPower != lastMicPower)
@@ -207,7 +208,31 @@ if(! poweredDown)
       Serial.println(volumePot);
       lastVolume=volumePot;
    }
- 
+
+  if(Serial2.available() > 0)         //received something from the GPS module
+    {
+      for(int n=Serial2.available();n > 0; n--)
+      {
+        if(GPSon)
+        {
+          Serial1.write("G");
+          Serial1.write(Serial2.read());
+          if(n > 1)
+          {
+          Serial1.write(Serial2.read());
+          n--;  
+          }
+          else
+          {
+          Serial1.write((byte)0x00);
+          }   
+        }
+        else
+        {
+          char dummy=Serial2.read();          //throw away the GPS data
+        }
+      }
+    }
 }
 
 
@@ -265,6 +290,19 @@ void loop1()
       powerDown();
       break;
       
+      case 'G':         //GPS data on/off
+      ch=Serial1.read();
+      GPSon = ch & 0x01;
+      Serial.print("GPS Data ");
+      if(GPSon)
+      {
+        Serial.println("On");
+      }
+      else
+      {
+        Serial.println("Off");
+      }
+      break;
     } 
   }
 }
