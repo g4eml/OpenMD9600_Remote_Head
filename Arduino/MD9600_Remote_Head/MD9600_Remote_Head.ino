@@ -39,6 +39,7 @@ uint8_t micPower;
 static uint8_t poweredDown = 0;
 int volumePot = 0;
 static bool GPSon = 0;
+static bool DataReceived;
 
 bool reSend = false;
 
@@ -79,7 +80,7 @@ pinMode(K6,INPUT_PULLUP);
 pinMode(ROTARYA,INPUT_PULLUP);
 pinMode(ROTARYB,INPUT_PULLUP);
 
-analogWriteFreq(20000);
+analogWriteFreq(20000);           //This value works well with version 1 radios but not with version 3 or later without modification. 
 analogWriteRange(255);
 
 analogWrite(LAMP,0);
@@ -162,7 +163,6 @@ delay(1);
     
 readKeys();
 
-
 if(! poweredDown)
   {
     if((frontKeys != lastkeys) || (reSend))
@@ -188,17 +188,18 @@ if(! poweredDown)
       Serial.println((micRow<<8)+micCol,HEX);
      }
   }
- else
- {
-  if(frontKeys == 1)    // Power Button
+  else
   {
-    poweredDown = false;
-    EEPROM.write(0,73);
-    EEPROM.write(1,0);
-    EEPROM.commit();
-    sendBreak();
+  if(frontKeys == 1)    // Power Button
+    {
+      poweredDown = false;
+      EEPROM.write(0,73);
+      EEPROM.write(1,0);
+      EEPROM.commit();
+      sendBreak();
+    }
   }
- }
+ 
 
  readVol();
  if((volumePot - lastVolume) != 0)
@@ -251,7 +252,7 @@ void loop1()
       digitalWrite(LCDCD,LOW);  // command mode
       ch=Serial1.read();
       LCDtransfer(ch);
-      digitalWrite(LCDCS,HIGH);      
+      digitalWrite(LCDCS,HIGH);     
       break;
 
       case 'D':           
@@ -267,27 +268,27 @@ void loop1()
           bytecount--; 
         }
       }      
-      digitalWrite(LCDCS,HIGH);      
+      digitalWrite(LCDCS,HIGH);     
       break;
 
       case 'B':        //Brightness value
       ch=Serial1.read();
-      brightness=ch;
+      brightness=ch; 
       break;
 
       case 'P':         //Mic Power
       ch=Serial1.read();
-      micPower = ch & 0x01;
+      micPower = ch & 0x01; 
       break;
 
       case 'R':         //rescan and resend the keys
       ch=Serial1.read();    //Discard the second byte
-      reSend=true;
+      reSend=true; 
       break;
 
       case 'O':         //Power down
       ch=Serial1.read();    //Discard the second byte
-      powerDown();
+      powerDown();      
       break;
       
       case 'G':         //GPS data on/off
@@ -301,7 +302,7 @@ void loop1()
       else
       {
         Serial.println("Off");
-      }
+      } 
       break;
     } 
   }
@@ -332,8 +333,7 @@ void powerDown(void)
   EEPROM.write(0,73);
   EEPROM.write(1,1);
   EEPROM.commit();
-  poweredDown = true;
-  
+  poweredDown = true;  
 }
 
 void rotaryISR(void)
