@@ -64,7 +64,18 @@ The components needed to assemble the boards are easily available and a parts li
 
 The only difficult parts to solder are the ribbon cable connectors and the two SOT23-6 chips. However these can both be done with very carefull hand soldering. 
 
-### Programming the Raspberry Pi Pico.
+### Programming the Raspberry Pi Pico (Quick Method)
+
+This can be done either before or after the Pico has been soldered to the PCB, it makes no difference.  
+
+1. Locate the file 'NEW.uf2' which will be found in the Pico Firmware directory of this repository and copy it to your desktop. 
+
+2. Hold down the BOOTSEL button on the Pico while connecting it to your PC using its micro USB port. The Pico should appear as a USB disk drive on your PC.
+
+3. Copy the NEW.uf2 file onto the USB drive. The pico will recognise the file and immediately update its firmware and reboot.
+
+ 
+### Programming the Raspberry Pi Pico using the Arduino IDE (longer method).
 
 The Raspberry Pi Pico is programmed using the Arduino IDE with the Earl F. Philhower, III core. 
 
