@@ -61,10 +61,10 @@ if(EEPROM.read(0) == 73)              //valid EEPROM data?
 
 pinMode(LAMP,OUTPUT);
 pinMode(MIC_POWER,OUTPUT);
-pinMode(K0,OUTPUT);
-pinMode(K1,OUTPUT);
-pinMode(K2,OUTPUT);
-pinMode(K3,OUTPUT);
+pinMode(K0,INPUT);
+pinMode(K1,INPUT);
+pinMode(K2,INPUT);
+pinMode(K3,INPUT);
 pinMode(LCDRESET,OUTPUT);
 pinMode(LCDCD,OUTPUT);
 pinMode(LCDCS,OUTPUT);
@@ -361,29 +361,35 @@ if(lasta != rota)
 void readKeys(void)
 {
   frontKeys =0;
+  pinMode(K0,OUTPUT);
   digitalWrite(K0,LOW);
   if(digitalRead(K6) == LOW) frontKeys=frontKeys | 0x0001;
   if(digitalRead(K5) == LOW) frontKeys=frontKeys | 0x0002;
   if(digitalRead(K4) == LOW) frontKeys=frontKeys | 0x0004;
   digitalWrite(K0,HIGH);
+  pinMode(K0,INPUT);
 
+  pinMode(K1,OUTPUT);
   digitalWrite(K1,LOW);
   if(digitalRead(K6) == LOW) frontKeys=frontKeys | 0x0008;
   if(digitalRead(K5) == LOW) frontKeys=frontKeys | 0x0010;
   if(digitalRead(K4) == LOW) frontKeys=frontKeys | 0x0020;
   digitalWrite(K1,HIGH); 
-
-   
+  pinMode(K1,INPUT);
+  
+  pinMode(K2,OUTPUT);   
   digitalWrite(K2,LOW);
   if(digitalRead(K6) == LOW) frontKeys=frontKeys | 0x0040;
   if(digitalRead(K5) == LOW) frontKeys=frontKeys | 0x0080;
   if(digitalRead(K4) == LOW) frontKeys=frontKeys | 0x0100;
-  digitalWrite(K2,HIGH); 
+  digitalWrite(K2,HIGH);
+  pinMode(K2,INPUT); 
 
-     
+  pinMode(K3,OUTPUT);     
   digitalWrite(K3,LOW);
   if(digitalRead(K6) == LOW) frontKeys=frontKeys | 0x0200;
-  digitalWrite(K3,HIGH); 
+  digitalWrite(K3,HIGH);
+  pinMode(K3,INPUT); 
 
   if(digitalRead(PTT)== LOW) frontKeys=frontKeys | 0x8000;
 
